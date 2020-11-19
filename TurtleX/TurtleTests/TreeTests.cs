@@ -4,7 +4,7 @@ using TurtleX.Interpreter;
 namespace TurtleTests
 {
     [TestClass]
-    public class UnitTest1
+    public class TreeTests
     {
         [TestMethod]
         public void simple_plus_test()
@@ -44,6 +44,18 @@ namespace TurtleTests
             IExpression e1 = new OperatorDivision(l1, l2);
 
             Assert.AreEqual(4, e1.eval());
+        }
+
+        [TestMethod]
+        public void tree_test()
+        {
+            IExpression l1 = new Literal(8);
+            IExpression l2 = new Literal(2);
+            IExpression e1 = new OperatorPlus(l1, l2);
+
+            IExpression e2 = new OperatorMinus(l1, l2);
+            IExpression e3 = new OperatorMultiply(e1, e2);
+            Assert.AreEqual(60, e3.eval());
         }
     }
 }

@@ -58,13 +58,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interpreter\DivisionOperator.cs" />
-    <Compile Include="Interpreter\IExpression.cs" />
-    <Compile Include="Interpreter\Literal.cs" />
-    <Compile Include="Interpreter\MultiplyOperator.cs" />
-    <Compile Include="Interpreter\Operator.cs" />
-    <Compile Include="Interpreter\OperatorMinus.cs" />
-    <Compile Include="Interpreter\OperatorPlus.cs" />
+    <Compile Include="ParsersX\ParserX.cs" />
+    <Compile Include="ParsersX\Token.cs" />
+    <Compile Include="TreeStructures\OperatorDivision.cs" />
+    <Compile Include="TreeStructures\IExpression.cs" />
+    <Compile Include="TreeStructures\Literal.cs" />
+    <Compile Include="TreeStructures\OperatorMultiply.cs" />
+    <Compile Include="TreeStructures\Operator.cs" />
+    <Compile Include="TreeStructures\OperatorMinus.cs" />
+    <Compile Include="TreeStructures\OperatorPlus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
