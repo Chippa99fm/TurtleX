@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TurtleX.Interpreter
 {
-    interface IExpression
+   public interface IExpression
     {
         double eval();
     }

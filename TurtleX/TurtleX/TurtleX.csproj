@@ -38,7 +38,9 @@
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net40\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,9 +65,6 @@
     <Compile Include="Interpreter\Operator.cs" />
     <Compile Include="Interpreter\OperatorMinus.cs" />
     <Compile Include="Interpreter\OperatorPlus.cs" />
-    <Compile Include="Interpreter\Token.cs" />
-    <Compile Include="Interpreter\Tokenizer.cs" />
-    <Compile Include="Interpreter\TokenType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

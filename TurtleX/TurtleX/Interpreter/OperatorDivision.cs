@@ -5,14 +5,14 @@ using System.Text;
 
 namespace TurtleX.Interpreter
 {
-    class DivisionOperator: Operator
+    public class OperatorDivision: Operator
     {
-        public DivisionOperator(IExpression left, IExpression right)
+        public OperatorDivision(IExpression left, IExpression right)
                : base(left, right)
         {
             // do nothing
         }
-        public double eval()
+        public override double eval()
         {
             double leftValue = this.left.eval();
             double rightValue = this.right.eval();

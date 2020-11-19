@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TurtleX.Interpreter
 {
-    abstract class Operator : IExpression
+    public abstract class Operator : IExpression
     {
         protected IExpression left;
         protected IExpression right;
@@ -15,10 +15,6 @@ namespace TurtleX.Interpreter
             this.left = left;
             this.right = right;
         }
-
-        public virtual double eval()
-        {
-            return 0;
-        }
+       abstract public double eval();
     }
 }

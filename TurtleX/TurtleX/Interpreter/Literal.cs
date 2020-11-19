@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TurtleX.Interpreter
 {
-    class Literal : IExpression
+   public class Literal : IExpression
     {
         double number;
         public Literal(double number)

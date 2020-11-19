@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TurtleX.Interpreter
 {
-    class OperatorMinus : Operator
+    public class OperatorMinus : Operator
     {
         public OperatorMinus(IExpression left, IExpression right)
             :base(left,right)
@@ -13,7 +13,7 @@ namespace TurtleX.Interpreter
             
         }
 
-        public double eval()
+        public override double eval()
         {
             double leftValue = this.left.eval();
             double rightValue = this.right.eval();

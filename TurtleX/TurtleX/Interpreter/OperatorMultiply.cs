@@ -5,15 +5,15 @@ using System.Text;
 
 namespace TurtleX.Interpreter
 {
-    class MultiplyOperator : Operator
+    public class OperatorMultiply : Operator
     {
-        public MultiplyOperator(IExpression left, IExpression right)
+        public OperatorMultiply(IExpression left, IExpression right)
             : base(left, right)
         {
 
         }
 
-        public double eval()
+        public override double eval()
         {
             double leftValue = this.left.eval();
             double rightValue = this.right.eval();
