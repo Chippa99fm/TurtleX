@@ -11,6 +11,8 @@ namespace TurtleX.ParsersX
         String lexeme;
         int pos;
         int length;
+        public int priority { get; set; }
+        
 
         public Token(TokenType kind, string lexeme,  int pos, int length)
         {
@@ -28,6 +30,6 @@ namespace TurtleX.ParsersX
 
     public enum TokenType
     {
-        WHITESPACE, LITERAL, OPERATOR, VAR, LEFT_BRACE, RIGHT_BRACE
+        WHITESPACE, LITERAL, OPERATOR, VAR, LEFT_BRACE, RIGHT_BRACE, EQUAL
     }
 }

@@ -8,6 +8,13 @@ namespace TurtleX.ParsersX
 {
     public class ParserX
     {
+        String source;
+
+        public ParserX(String source)
+        {
+            this.source = source;
+        }
+
         /// <summary>
         /// Перевож строки в токены
         /// </summary>

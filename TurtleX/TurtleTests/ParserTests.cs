@@ -20,7 +20,7 @@ namespace TurtleTests
 
         private IExpression buildTree()
         {
-            IExpression e1 
+            IExpression e1;
         }
     }
 }

@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="ParsersX\ParserX.cs" />
     <Compile Include="ParsersX\Token.cs" />
+    <Compile Include="ParsersX\Tokenizer.cs" />
     <Compile Include="TreeStructures\OperatorDivision.cs" />
     <Compile Include="TreeStructures\IExpression.cs" />
     <Compile Include="TreeStructures\Literal.cs" />
