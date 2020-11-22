@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using TurtleX.Interpreter;
 using TurtleX.ParsersX;
 
 namespace TurtleTests
@@ -119,6 +120,38 @@ namespace TurtleTests
             {
                 Assert.AreEqual(actual[i], tokens[i]);
             }
+        }
+
+        [TestMethod]
+        public void simple_build_tree_test()
+        {
+            List<Token> expected = new List<Token>();
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+            expected.Add(new Token(TokenType.OPERATOR, "+", 2, 2));
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+
+            ParserX parser = new ParserX("");
+            List<Token> tokens = parser.ToPostfix(expected);
+            IExpression exp = parser.BuildTree(tokens);
+
+            Assert.AreEqual(4, exp.eval());
+        }
+
+        [TestMethod]
+        public void medium_build_tree_test()
+        {
+            List<Token> expected = new List<Token>();
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+            expected.Add(new Token(TokenType.OPERATOR, "+", 2, 2,1));
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+            expected.Add(new Token(TokenType.OPERATOR, "*", 2, 2, 2));
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+
+            ParserX parser = new ParserX("");
+            List<Token> tokens = parser.ToPostfix(expected);
+            IExpression exp = parser.BuildTree(tokens);
+
+            Assert.AreEqual(6, exp.eval());
         }
     }
 }

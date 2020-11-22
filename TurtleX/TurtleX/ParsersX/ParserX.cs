@@ -155,15 +155,21 @@ namespace TurtleX.ParsersX
 						break;
 				}
 			});
-			return null;
+			return expStack.Pop();
 		}
 
 		public IExpression parse(String str)
 		{
 			List<Token> tokens = getTokens(str);
+			String varName = null;
+			if (tokens[0].getTokenType() == TokenType.VAR && tokens[1].getTokenType() == TokenType.EQUAL)
+			{
+				varName = tokens[0].getValue();
+			}
 			List<Token> postfixTokens = ToPostfix(tokens);
 
-			return BuildTree(postfixTokens);
+			IExpression tree = BuildTree(postfixTokens);
+			return new Declaration(varName, tree);
 		}
 
 	}

@@ -66,6 +66,7 @@
     <Compile Include="TreeStructures\OperatorDivision.cs" />
     <Compile Include="TreeStructures\IExpression.cs" />
     <Compile Include="TreeStructures\Literal.cs" />
+    <Compile Include="TreeStructures\OperatorFactory.cs" />
     <Compile Include="TreeStructures\OperatorMultiply.cs" />
     <Compile Include="TreeStructures\Operator.cs" />
     <Compile Include="TreeStructures\OperatorMinus.cs" />
