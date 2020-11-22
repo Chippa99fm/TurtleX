@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TurtleLibrary;
 
 namespace TurtleX.Interpreter
 {
     public class OperatorDivision: Operator
     {
+        static OperatorDivision() {
+            OperatorFactory.operatorRegister.Add("/", (ie1, ie2) => { return new OperatorDivision(ie1, ie2); });
+        }
+
         public OperatorDivision(IExpression left, IExpression right)
                : base(left, right)
         {

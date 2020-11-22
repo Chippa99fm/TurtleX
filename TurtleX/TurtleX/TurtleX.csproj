@@ -64,11 +64,8 @@
     <Compile Include="ParsersX\Tokenizer.cs" />
     <Compile Include="TreeStructures\Declaration.cs" />
     <Compile Include="TreeStructures\OperatorDivision.cs" />
-    <Compile Include="TreeStructures\IExpression.cs" />
     <Compile Include="TreeStructures\Literal.cs" />
-    <Compile Include="TreeStructures\OperatorFactory.cs" />
     <Compile Include="TreeStructures\OperatorMultiply.cs" />
-    <Compile Include="TreeStructures\Operator.cs" />
     <Compile Include="TreeStructures\OperatorMinus.cs" />
     <Compile Include="TreeStructures\OperatorPlus.cs" />
     <Compile Include="Program.cs" />
@@ -96,6 +93,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TurtleLibrary\TurtleLibrary.csproj">
+      <Project>{D9422D6F-C493-4BD6-A879-54BD7AD8F467}</Project>
+      <Name>TurtleLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

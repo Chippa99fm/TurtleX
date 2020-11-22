@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TurtleX.Interpreter
+namespace TurtleLibrary
 {
     public abstract class Operator : IExpression
     {
@@ -15,6 +15,6 @@ namespace TurtleX.Interpreter
             this.left = left;
             this.right = right;
         }
-       abstract public double eval();
+        abstract public double eval();
     }
 }
