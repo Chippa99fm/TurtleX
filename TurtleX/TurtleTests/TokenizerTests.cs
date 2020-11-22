@@ -9,7 +9,7 @@ namespace TurtleTests
     public class TokenizerTests
     {
         [TestMethod]
-        public void SimpleTest()
+        public void simple_tokenizer_test()
         {
             String source = "x = 2.2 + 3";
             List<Token> expected = new List<Token>();

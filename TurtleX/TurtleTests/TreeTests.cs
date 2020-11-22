@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using TurtleX.Interpreter;
+using TurtleX.ParsersX;
 
 namespace TurtleTests
 {

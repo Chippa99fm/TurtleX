@@ -12,7 +12,6 @@ namespace TurtleX.ParsersX
         int pos;
         int length;
         public int priority { get; set; }
-        
 
         public Token(TokenType kind, string lexeme,  int pos, int length)
         {
@@ -22,9 +21,23 @@ namespace TurtleX.ParsersX
             this.length = length;
         }
 
-        public String toString()
+        public Token(TokenType kind, string lexeme, int pos, int length, int priority)
+        {
+            this.kind = kind;
+            this.lexeme = lexeme;
+            this.pos = pos;
+            this.length = length;
+            this.priority = priority;
+        }
+
+        public override String ToString()
         {
             return kind + " " + lexeme;
+        }
+
+        public TokenType  getTokenType()
+        {
+            return kind;
         }
 
         public bool Equals(Token other)
