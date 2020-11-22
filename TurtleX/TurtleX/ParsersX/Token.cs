@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TurtleX.ParsersX
 {
-    public class Token
+    public class Token : IEquatable<Token>
     {
         TokenType kind;
         String lexeme;
@@ -25,6 +25,36 @@ namespace TurtleX.ParsersX
         public String toString()
         {
             return kind + " " + lexeme;
+        }
+
+        public bool Equals(Token other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return kind == other.kind && lexeme == other.lexeme 
+                                      && pos == other.pos && length == other.length 
+                                      && priority == other.priority;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Token) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (int) kind;
+                hashCode = (hashCode * 397) ^ (lexeme != null ? lexeme.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ pos;
+                hashCode = (hashCode * 397) ^ length;
+                hashCode = (hashCode * 397) ^ priority;
+                return hashCode;
+            }
         }
     }
 

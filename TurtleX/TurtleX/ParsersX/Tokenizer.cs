@@ -14,16 +14,18 @@ namespace TurtleX.ParsersX
 
         Dictionary<Char, int> prioritys = new Dictionary<char, int>();
 
-        Tokenizer(String source) {
+        public Tokenizer(String source) {
             this.source = source;
             initPriority();
         }
 
-        private void scanTokens() {
-            while(isAtEnd()) {
-                current = start;
+        public List<Token> scanTokens() {
+            while(!isAtEnd()) {
+                start = current;
                 scanToken();
             }
+
+            return this.tokens;
         }
 
         private void initPriority() {
@@ -81,7 +83,7 @@ namespace TurtleX.ParsersX
         
 
         char advance() {
-            return source[current];
+            return source[current++];
         }
 
         void number() {
@@ -118,8 +120,12 @@ namespace TurtleX.ParsersX
         }   
 
         void addToken(TokenType tokenType) {
-            String text = source.Substring(current, current - start);
-            Token token = new Token(tokenType, text, current, current - start);
+            if (2 * current - start > source.Length)
+            {
+                int x = 0;
+            }
+            String text = source.Substring(start, current - start);
+            Token token = new Token(tokenType, text, start, current - start);
             int priority = 0;
             if (tokenType == TokenType.OPERATOR) {
                 if(text.Length > 1) {

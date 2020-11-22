@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -14,16 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TurtleX\TurtleX.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="nunit.framework">
       <HintPath>..\TurtleX\bin\Debug\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="TurtleX">
-      <HintPath>..\TurtleX\bin\Debug\TurtleX.exe</HintPath>
-    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TurtleX\TurtleX.csproj" />
   </ItemGroup>
 
 </Project>
