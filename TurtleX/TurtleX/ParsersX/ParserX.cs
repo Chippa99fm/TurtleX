@@ -23,7 +23,8 @@ namespace TurtleX.ParsersX
 		/// <returns></returns>
 		public List<Token> getTokens(String source)
 		{
-			return null;
+			Tokenizer tokenizer = new Tokenizer(source);
+			return tokenizer.scanTokens();
 		}
 
 		/// <summary>

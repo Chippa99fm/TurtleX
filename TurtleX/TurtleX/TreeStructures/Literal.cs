@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TurtleX.ParsersX;
 
 namespace TurtleX.Interpreter
 {
    public class Literal : IExpression
     {
-        double number;
-        public Literal(double number)
+        Token number;
+        public Literal(Token number)
         {
             this.number = number;
         }
         public double eval()
         {
-            return number;
+            return double.Parse(number.getValue());
         }
     }
 }

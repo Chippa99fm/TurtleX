@@ -39,8 +39,7 @@ namespace TurtleX.ParsersX
         {
             return kind;
         }
-
-        public String getLexeme()
+        public String getValue()
         {
             return lexeme;
         }
