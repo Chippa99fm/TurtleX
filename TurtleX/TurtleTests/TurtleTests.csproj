@@ -17,9 +17,10 @@
     <Reference Include="nunit.framework">
       <HintPath>..\TurtleX\bin\Debug\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="TurtleX">
-      <HintPath>..\TurtleX\bin\Debug\TurtleX.exe</HintPath>
-    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TurtleX\TurtleX.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ namespace TurtleTests
     class ParserTests
     {
         [TestMethod]
-        public void  parser_test()
+        public void parser_test()
         {
             String s = "2+2*5";
             ParserX parser = new ParserX(s);
