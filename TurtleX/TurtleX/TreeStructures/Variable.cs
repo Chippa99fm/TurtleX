@@ -5,9 +5,9 @@ namespace TurtleX.Interpreter
 {
     public class Variable : IExpression
     {
-        public Variable(String variableName)
+        public Variable(Token variableName)
         {
-            variable = variableName;
+            variable = variableName.getValue();
         }
         
         private String variable;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TurtleX.Interpreter;
+using TurtleX.TreeStructures;
 
 namespace TurtleX.ParsersX
 {
@@ -131,6 +132,29 @@ namespace TurtleX.ParsersX
 		/// <returns></returns>
 		public IExpression BuildTree(List<Token> postfix)
 		{
+			Stack<IExpression> expStack = new Stack<IExpression>();
+			postfix.ForEach((it) =>
+			{
+				TokenType type = it.getTokenType();
+				switch(type)
+				{
+					case TokenType.LITERAL:
+						IExpression exp = new Literal(it);
+						expStack.Push(exp);
+						break;
+					case TokenType.VAR:
+						IExpression var = new Variable(it);
+						expStack.Push(var);
+						break;
+					case TokenType.OPERATOR:
+						IExpression l1 = expStack.Pop();
+						IExpression l2 = expStack.Pop();
+
+						IExpression oper = OperatorFactory.getExpression(it.getValue(), l2, l1);
+						expStack.Push(oper);
+						break;
+				}
+			});
 			return null;
 		}
 
