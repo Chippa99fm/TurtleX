@@ -60,6 +60,6 @@ namespace TurtleX.ParsersX
 
     public enum TokenType
     {
-        WHITESPACE, LITERAL, OPERATOR, VAR, LEFT_BRACE, RIGHT_BRACE, EQUAL
+        WHITESPACE, LITERAL, OPERATOR, VAR, LEFT_BRACE, RIGHT_BRACE, EQUAL, COMMA
     }
 }

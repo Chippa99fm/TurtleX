@@ -49,6 +49,9 @@ namespace TurtleX.ParsersX
                     break;
                 case ' ':
                     break;
+                case ',':
+                    addToken(TokenType.COMMA);
+                    break;
                 case '+':
                 case '-':
                 case '/':
@@ -61,8 +64,11 @@ namespace TurtleX.ParsersX
                     } else if(isAlpha(c)) {
                         identifier();
                     }
+                    else
+                    {
+                        throw new Exception("Invalid character");
+                    }
                     break;
-
             }
         }
 
@@ -86,6 +92,11 @@ namespace TurtleX.ParsersX
             return source[current++];
         }
 
+        char prev()
+        {
+            return source[current - 1];
+        }
+
         void number() {
             while (isDigit(peek()))
             {
@@ -105,7 +116,7 @@ namespace TurtleX.ParsersX
 
         void identifier() {
             TokenType tokenType = TokenType.VAR;
-            if(peek() == '_') {
+            if(prev() == '_') {
                 tokenType = TokenType.OPERATOR;
             } 
             while(isAlphaNumeric(peek())) {
@@ -120,21 +131,17 @@ namespace TurtleX.ParsersX
         }   
 
         void addToken(TokenType tokenType) {
-            if (2 * current - start > source.Length)
-            {
-                int x = 0;
-            }
             String text = source.Substring(start, current - start);
             Token token = new Token(tokenType, text, start, current - start);
-            int priority = 0;
-            if (tokenType == TokenType.OPERATOR) {
-                if(text.Length > 1) {
+            if (tokenType == TokenType.OPERATOR)
+            {
+                int priority = 0;
+                if (!prioritys.TryGetValue(text.ToCharArray()[0], out priority))
+                {
                     priority = 3;
-                } else {
-                    prioritys.TryGetValue(text.ToCharArray()[0], out priority);
                 }
+                token.priority = priority;
             }
-            token.priority = priority;
             tokens.Add(token);
         }
 
