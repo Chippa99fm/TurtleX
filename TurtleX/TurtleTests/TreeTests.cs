@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using TurtleX.Interpreter;
+using TurtleX.ParsersX;
 
 namespace TurtleTests
 {
@@ -56,6 +58,28 @@ namespace TurtleTests
             IExpression e2 = new OperatorMinus(l1, l2);
             IExpression e3 = new OperatorMultiply(e1, e2);
             Assert.AreEqual(60, e3.eval());
+        }
+
+        [TestMethod]
+        public void simple_postfix_transformate_test()
+        {           
+            List<Token> expected = new List<Token>();
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+            expected.Add(new Token(TokenType.OPERATOR, "2", 2, 2));
+            expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+
+            List<Token> actual = new List<Token>();
+            actual.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+            actual.Add(new Token(TokenType.LITERAL, "2", 2, 2));
+            actual.Add(new Token(TokenType.OPERATOR, "2", 2, 2));
+
+            ParserX parser = new ParserX("");
+            List<Token> tokens = parser.ToPostfix(expected);
+
+            for(int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(actual[i], tokens[i]);
+            }          
         }
     }
 }

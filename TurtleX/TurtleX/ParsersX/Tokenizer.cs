@@ -14,16 +14,17 @@ namespace TurtleX.ParsersX
 
         Dictionary<Char, int> prioritys = new Dictionary<char, int>();
 
-        Tokenizer(String source) {
+        public Tokenizer(String source) {
             this.source = source;
             initPriority();
         }
 
-        private void scanTokens() {
+        public List<Token> scanTokens() {
             while(isAtEnd()) {
                 current = start;
                 scanToken();
             }
+            return tokens;
         }
 
         private void initPriority() {

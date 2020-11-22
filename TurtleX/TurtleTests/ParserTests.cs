@@ -14,13 +14,8 @@ namespace TurtleTests
         public void  parser_test()
         {
             String s = "2+2*5";
-            ParserX parser = new ParserX();
+            ParserX parser = new ParserX(s);
             parser.parse(s);
-        }
-
-        private IExpression buildTree()
-        {
-            IExpression e1;
         }
     }
 }

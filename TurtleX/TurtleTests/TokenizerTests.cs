@@ -11,11 +11,11 @@ namespace TurtleTests
     class TokenizerTests
     {
         [TestMethod]
-        public void simpleTokenizerTest()
+        public void simple_tokenizer_test()
         {
             string source = "X = 2 + 5 - 2";
             List<Token> expected = new List<Token>();
-            Assert.areEqual(1, 1);
+          //  Assert.areEqual(1, 1);
         }
     }
 }
