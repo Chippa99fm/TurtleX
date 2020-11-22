@@ -58,9 +58,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ParsersX\Enviroment.cs" />
     <Compile Include="ParsersX\ParserX.cs" />
     <Compile Include="ParsersX\Token.cs" />
     <Compile Include="ParsersX\Tokenizer.cs" />
+    <Compile Include="TreeStructures\Declaration.cs" />
     <Compile Include="TreeStructures\OperatorDivision.cs" />
     <Compile Include="TreeStructures\IExpression.cs" />
     <Compile Include="TreeStructures\Literal.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="TreeStructures\OperatorPlus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeStructures\Variable.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

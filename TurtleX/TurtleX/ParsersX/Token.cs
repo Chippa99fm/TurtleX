@@ -40,6 +40,11 @@ namespace TurtleX.ParsersX
             return kind;
         }
 
+        public String getLexeme()
+        {
+            return lexeme;
+        }
+
         public bool Equals(Token other)
         {
             if (ReferenceEquals(null, other)) return false;
