@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TurtleX.Interpreter
+namespace TurtleLibrary
 {
-   public interface IExpression
+    public interface IExpression
     {
         double eval();
     }
