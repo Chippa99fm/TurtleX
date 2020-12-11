@@ -11,7 +11,7 @@ namespace Kvadrat
 	{
         public static void add()
         {
-            OperatorFactory.operatorRegister.Add("^", (ie1, ie2) => { return new Kvadrat(ie1, ie2); });
+            OperatorFactory.operatorRegister.Add("_pow", (ie1, ie2) => { return new Kvadrat(ie1, ie2); });
         }
 
         public Kvadrat(IExpression left, IExpression right)

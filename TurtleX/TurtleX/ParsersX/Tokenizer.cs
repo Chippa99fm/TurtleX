@@ -63,7 +63,7 @@ namespace TurtleX.ParsersX
                     }
                     else
                     {
-                        throw new ArgumentException("Invalid character[start index - " + current + "| invalid character - " + source[current] + "]");
+                        throw new ArgumentException("Invalid character[start index - " + current + "| invalid character - " + source[current-1] + "]");
                     }
                     break;
             }
