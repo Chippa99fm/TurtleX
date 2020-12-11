@@ -20,7 +20,8 @@ namespace TurtleX.Interpreter
         public double eval()
         {
             double result = expr.eval();
-            Enviroment.getInstance().getVariables().Add(var, result);
+            Enviroment.getInstance().getVariables()[var] = result;
+
             return result;
         }
     }

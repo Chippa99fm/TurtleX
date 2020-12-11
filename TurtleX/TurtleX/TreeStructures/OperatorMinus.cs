@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TurtleLibrary;
+﻿using TurtleLibrary;
+using TurtleX.TreeStructures;
 
 namespace TurtleX.Interpreter
 {
     public class OperatorMinus : Operator
     {
-
-        static OperatorMinus() {
+        public static void addPenis()
+        {
             OperatorFactory.operatorRegister.Add("-", (ie1, ie2) => { return new OperatorMinus(ie1, ie2); });
         }
         public OperatorMinus(IExpression left, IExpression right)

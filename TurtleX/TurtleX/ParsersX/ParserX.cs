@@ -5,17 +5,20 @@ using System.Linq;
 using System.Text;
 using TurtleLibrary;
 using TurtleX.Interpreter;
+using TurtleX.TreeStructures;
 
 namespace TurtleX.ParsersX
 {
 	public class ParserX
 	{
-		String source;
-
-		public ParserX(String source)
+		public static void kostil()
 		{
-			this.source = source;
+			OperatorMultiply.addKostil();
+			OperatorDivision.addKostil();
+			OperatorMinus.addPenis();
+			OperatorPlus.addKostil();
 		}
+
 
 		/// <summary>
 		/// Перевож строки в токены
@@ -169,7 +172,7 @@ namespace TurtleX.ParsersX
 			List<Token> postfixTokens = ToPostfix(tokens);
 
 			IExpression tree = BuildTree(postfixTokens);
-			return new Declaration(varName, tree);
+			return (varName == null) ? tree : new Declaration(varName, tree);
 		}
 
 	}

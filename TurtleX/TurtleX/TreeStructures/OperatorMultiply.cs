@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TurtleLibrary;
+﻿using TurtleLibrary;
+using TurtleX.TreeStructures;
 
 namespace TurtleX.Interpreter
 {
     public class OperatorMultiply : Operator
     {
-
-       static OperatorMultiply() {
+        public static void addKostil() {
             OperatorFactory.operatorRegister.Add("*", (ie1, ie2) => { return new OperatorMultiply(ie1, ie2); });
         }
         public OperatorMultiply(IExpression left, IExpression right)

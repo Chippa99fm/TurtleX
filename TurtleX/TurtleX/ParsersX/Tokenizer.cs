@@ -49,9 +49,6 @@ namespace TurtleX.ParsersX
                     break;
                 case ' ':
                     break;
-                case ',':
-                    addToken(TokenType.COMMA);
-                    break;
                 case '+':
                 case '-':
                 case '/':
@@ -66,7 +63,7 @@ namespace TurtleX.ParsersX
                     }
                     else
                     {
-                        throw new Exception("Invalid character");
+                        throw new ArgumentException("Invalid character[start index - " + current + "| invalid character - " + source[current] + "]");
                     }
                     break;
             }
@@ -103,7 +100,7 @@ namespace TurtleX.ParsersX
                 advance();
             }
 
-            if(peek() == '.' && isDigit(peekNext())) {
+            if(peek() == ',' && isDigit(peekNext())) {
                 advance();
                 while (isDigit(peek()))
                 {

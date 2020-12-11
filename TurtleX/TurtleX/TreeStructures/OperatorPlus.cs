@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TurtleLibrary;
+﻿using TurtleLibrary;
+using TurtleX.TreeStructures;
 
 namespace TurtleX.Interpreter
 {
 
     public class OperatorPlus : Operator
     {
-        static OperatorPlus() { 
+        public static void addKostil()
+        {
             OperatorFactory.operatorRegister.Add("+", (ie1, ie2) => { return new OperatorPlus(ie1, ie2);}); 
         }
       

@@ -22,7 +22,7 @@ namespace TurtleTests
             actual.Add(new Token(TokenType.LITERAL, "2", 2, 2));
             actual.Add(new Token(TokenType.OPERATOR, "2", 2, 2));
 
-            ParserX parser = new ParserX("");
+            ParserX parser = new ParserX();
             List<Token> tokens = parser.ToPostfix(expected);
 
             for (int i = 0; i < actual.Count; i++)
@@ -50,7 +50,7 @@ namespace TurtleTests
             actual.Add(new Token(TokenType.LITERAL, "1", 2, 2));
             actual.Add(new Token(TokenType.OPERATOR, "/", 2, 2));
 
-            ParserX parser = new ParserX("");
+            ParserX parser = new ParserX();
             List<Token> tokens = parser.ToPostfix(expected);
 
             for (int i = 0; i < actual.Count; i++)
@@ -90,7 +90,7 @@ namespace TurtleTests
             actual.Add(new Token(TokenType.OPERATOR, "/", 2, 2, 2));
             actual.Add(new Token(TokenType.OPERATOR, "+", 2, 2, 1));
 
-            ParserX parser = new ParserX("");
+            ParserX parser = new ParserX();
             List<Token> tokens = parser.ToPostfix(expected);
 
             for (int i = 0; i < actual.Count; i++)
@@ -114,7 +114,7 @@ namespace TurtleTests
             actual.Add(new Token(TokenType.LITERAL, "2", 2, 2));
             actual.Add(new Token(TokenType.OPERATOR, "+", 2, 2));
 
-            ParserX parser = new ParserX("");
+            ParserX parser = new ParserX();
             List<Token> tokens = parser.ToPostfix(expected);
 
             for (int i = 0; i < actual.Count; i++)
@@ -131,7 +131,7 @@ namespace TurtleTests
             expected.Add(new Token(TokenType.OPERATOR, "+", 2, 2));
             expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
 
-            ParserX parser = new ParserX("");
+            ParserX parser = new ParserX();
             List<Token> tokens = parser.ToPostfix(expected);
             IExpression exp = parser.BuildTree(tokens);
 
@@ -148,7 +148,7 @@ namespace TurtleTests
             expected.Add(new Token(TokenType.OPERATOR, "*", 2, 2, 2));
             expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
 
-            ParserX parser = new ParserX("");
+            ParserX parser = new ParserX();
             List<Token> tokens = parser.ToPostfix(expected);
             IExpression exp = parser.BuildTree(tokens);
 
