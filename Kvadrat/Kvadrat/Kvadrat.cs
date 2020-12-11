@@ -5,25 +5,24 @@ using System.Text;
 using TurtleLibrary;
 using TurtleX.TreeStructures;
 
-namespace TurtleX.Interpreter
+namespace Kvadrat
 {
-    public class OperatorDivision: Operator
-    {
+	public class Kvadrat : Operator
+	{
         public static void add()
         {
-            OperatorFactory.operatorRegister.Add("/", (ie1, ie2) => { return new OperatorDivision(ie1, ie2); });
+            OperatorFactory.operatorRegister.Add("^", (ie1, ie2) => { return new Kvadrat(ie1, ie2); });
         }
 
-        public OperatorDivision(IExpression left, IExpression right)
+        public Kvadrat(IExpression left, IExpression right)
                : base(left, right)
         {
-            // do nothing
         }
         public override double eval()
         {
             double leftValue = this.left.eval();
             double rightValue = this.right.eval();
-            return leftValue / rightValue;
+            return Math.Pow(leftValue, rightValue);
         }
     }
 }

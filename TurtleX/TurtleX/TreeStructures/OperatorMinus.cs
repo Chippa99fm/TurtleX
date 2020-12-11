@@ -5,7 +5,7 @@ namespace TurtleX.Interpreter
 {
     public class OperatorMinus : Operator
     {
-        public static void addPenis()
+        public static void add()
         {
             OperatorFactory.operatorRegister.Add("-", (ie1, ie2) => { return new OperatorMinus(ie1, ie2); });
         }

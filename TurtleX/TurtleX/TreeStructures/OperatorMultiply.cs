@@ -5,7 +5,7 @@ namespace TurtleX.Interpreter
 {
     public class OperatorMultiply : Operator
     {
-        public static void addKostil() {
+        public static void add() {
             OperatorFactory.operatorRegister.Add("*", (ie1, ie2) => { return new OperatorMultiply(ie1, ie2); });
         }
         public OperatorMultiply(IExpression left, IExpression right)

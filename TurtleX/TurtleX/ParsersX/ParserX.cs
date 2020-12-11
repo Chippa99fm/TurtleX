@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using TurtleLibrary;
 using TurtleX.Interpreter;
@@ -11,12 +13,26 @@ namespace TurtleX.ParsersX
 {
 	public class ParserX
 	{
-		public static void kostil()
+		public static void initOperators()
 		{
-			OperatorMultiply.addKostil();
-			OperatorDivision.addKostil();
-			OperatorMinus.addPenis();
-			OperatorPlus.addKostil();
+			
+			DirectoryInfo dir = new DirectoryInfo(Directory.GetCurrentDirectory().ToString());
+			foreach (FileInfo file in dir.GetFiles())
+			{
+
+				try
+				{
+					Assembly a = Assembly.LoadFrom(file.Name);
+					Type[] types = a.GetTypes();
+					foreach (Type t in types)
+					{
+						MethodInfo method = t.GetMethod("add");
+						if (method!= null)
+							method.Invoke(a, null);
+					};
+				}
+				catch { };
+			}
 		}
 
 

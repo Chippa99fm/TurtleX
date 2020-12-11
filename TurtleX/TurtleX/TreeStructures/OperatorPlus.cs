@@ -6,9 +6,9 @@ namespace TurtleX.Interpreter
 
     public class OperatorPlus : Operator
     {
-        public static void addKostil()
+        public static void add()
         {
-            OperatorFactory.operatorRegister.Add("+", (ie1, ie2) => { return new OperatorPlus(ie1, ie2);}); 
+            OperatorFactory.operatorRegister.Add("%", (ie1, ie2) => { return new OperatorPlus(ie1, ie2);}); 
         }
       
         public OperatorPlus(IExpression left, IExpression right)

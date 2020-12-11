@@ -18,7 +18,7 @@ namespace TurtleX
 		{
 			InitializeComponent();
 			parser = new ParserX();
-			ParserX.kostil(); //госпади прости
+			ParserX.initOperators(); //госпади прости
 		}
 
 		private void button3_Click(object sender, EventArgs e)
