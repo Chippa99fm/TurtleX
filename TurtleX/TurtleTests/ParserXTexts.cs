@@ -9,6 +9,11 @@ namespace TurtleTests
     [TestClass]
     public class ParserXTests
     {
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            ParserX.initOperators();
+        }
         [TestMethod]
         public void simple_postfix_transformate_test()
         {

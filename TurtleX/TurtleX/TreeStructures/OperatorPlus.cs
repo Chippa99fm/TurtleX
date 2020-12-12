@@ -1,4 +1,5 @@
-﻿using TurtleLibrary;
+﻿using System;
+using TurtleLibrary;
 using TurtleX.TreeStructures;
 
 namespace TurtleX.Interpreter
@@ -16,11 +17,20 @@ namespace TurtleX.Interpreter
         {
             // do nothing
         }
+        
+        private Boolean isCashed = false;
+        private double result;
         public override double eval()
         {
-            double leftValue = this.left.eval();
-            double rightValue = this.right.eval();
-            return leftValue + rightValue; 
+            if (!isCashed)
+            {
+                double leftValue = this.left.eval();
+                double rightValue = this.right.eval();
+                result =  leftValue + rightValue;
+                isCashed = true;
+            }
+
+            return result;
         }
     }
 }

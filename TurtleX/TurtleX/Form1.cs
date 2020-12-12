@@ -8,17 +8,20 @@ using System.Text;
 using System.Windows.Forms;
 using TurtleLibrary;
 using TurtleX.ParsersX;
+using TurtleX.Utility;
 
 namespace TurtleX
 {
 	public partial class TurtleXForm : Form
 	{
 		ParserX parser;
+		private FileDialog fileDialog = new OpenFileDialog();
 		public TurtleXForm()
 		{
 			InitializeComponent();
 			parser = new ParserX();
 			ParserX.initOperators(); //госпади прости
+			fileDialog.Filter = "Text|*.txt|All|*.*";
 		}
 
 		private void button3_Click(object sender, EventArgs e)
@@ -68,6 +71,69 @@ namespace TurtleX
 		private void edit_Click(object sender, EventArgs e)
 		{
 			listExpressions.Items[listExpressions.SelectedIndex] = valueBox.Text;
+		}
+
+		private void button3_Click_1(object sender, EventArgs e)
+		{
+			listExpressions.Items.Clear();
+			listResults.Items.Clear();
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			String path;
+			fileDialog.ShowDialog();
+			path = fileDialog.FileName;
+			if (path != null)
+			{
+				ExprsExporter exporter = new ExprsExporter(path, listboxToList(listExpressions.Items));
+				if (!exporter.export())
+				{
+					MessageBox.Show("Something went wrong");
+				}
+				else
+				{
+					MessageBox.Show("Success");
+				}
+			}
+
+		}
+
+		private List<String> listboxToList(ListBox.ObjectCollection lisbox)
+		{
+			List<String> result = new List<String>();
+			foreach (String expr in lisbox)
+			{
+				result.Add(expr);
+			}
+
+			return result;
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			String path;
+			fileDialog.ShowDialog();
+			path = fileDialog.FileName;
+			if (path != null)
+			{
+				FileImporter importer = new FileImporter(path);
+				if (!importer.import())
+				{
+					MessageBox.Show("Something went wrong");
+				}
+				else
+				{
+					listExpressions.Items.Clear();
+					listResults.Items.Clear();
+					foreach (String expr in importer.exprs)
+					{
+						listExpressions.Items.Add(expr);
+					}
+
+					MessageBox.Show("Success");
+				}
+			}
 		}
 	}
 }

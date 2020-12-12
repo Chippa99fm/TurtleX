@@ -14,6 +14,9 @@ namespace TurtleX.Interpreter
             OperatorFactory.operatorRegister.Add("/", (ie1, ie2) => { return new OperatorDivision(ie1, ie2); });
         }
 
+        private Boolean isCashed = false;
+        private double result;
+
         public OperatorDivision(IExpression left, IExpression right)
                : base(left, right)
         {
@@ -21,9 +24,15 @@ namespace TurtleX.Interpreter
         }
         public override double eval()
         {
-            double leftValue = this.left.eval();
-            double rightValue = this.right.eval();
-            return leftValue / rightValue;
+            if (!isCashed)
+            {
+                double leftValue = this.left.eval();
+                double rightValue = this.right.eval();
+                result = leftValue / rightValue;
+                isCashed = true;
+            }
+
+            return result;
         }
     }
 }

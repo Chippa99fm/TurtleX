@@ -117,6 +117,10 @@ namespace TurtleX.ParsersX
                 tokenType = TokenType.OPERATOR;
             } 
             while(isAlphaNumeric(peek())) {
+                if (isDigit(peek()) && tokenType == TokenType.OPERATOR)
+                {
+                    break;
+                }
                 advance();
             }
             addToken(tokenType);

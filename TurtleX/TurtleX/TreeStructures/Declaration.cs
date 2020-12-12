@@ -7,6 +7,8 @@ namespace TurtleX.Interpreter
 {
     public class Declaration : IExpression
     {
+        private Boolean isCashed = false;
+        private double result;
 
         public Declaration(String var, IExpression expr)
         {
@@ -19,8 +21,12 @@ namespace TurtleX.Interpreter
 
         public double eval()
         {
-            double result = expr.eval();
-            Enviroment.getInstance().getVariables()[var] = result;
+            if (!isCashed)
+            {
+                result = expr.eval();
+                Enviroment.getInstance().getVariables()[var] = result;
+                isCashed = true;
+            }
 
             return result;
         }
