@@ -131,6 +131,7 @@ namespace TurtleTests
         [TestMethod]
         public void simple_build_tree_test()
         {
+            OperatorPlus.add();
             List<Token> expected = new List<Token>();
             expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
             expected.Add(new Token(TokenType.OPERATOR, "+", 2, 2));
@@ -146,6 +147,8 @@ namespace TurtleTests
         [TestMethod]
         public void medium_build_tree_test()
         {
+            OperatorPlus.add();
+            OperatorMultiply.add();
             List<Token> expected = new List<Token>();
             expected.Add(new Token(TokenType.LITERAL, "2", 2, 2));
             expected.Add(new Token(TokenType.OPERATOR, "+", 2, 2,1));
